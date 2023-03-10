@@ -1,0 +1,28 @@
+Soru 1: 
+Metin tipleri: str
+Sayısal tipler: int , float , complex
+Dizi tipleri:  list , tuple , range
+Adresleme tipleri: dict
+Küme tipleri: set , frozenset
+Mantıksal tipler: bool
+Binary tipler: bytes , bytearray , memoryview 
+
+Soru 2: 
+String metinsel değerleri ifade eder. Örneğin; ‘sonraki derse geç’ ‘bitir ve devam et’ 
+Sayısal veriler int yapıdadır. Örneğin; ‘kursun tamamlama yüzdesi’ 
+
+Soru 3: Şart Blokları
+Program içerisindeki aşamalardan birini tamamlamadan diğerine geçemez. 
+
+# ödev tamamlama yüzdesi 
+
+dersProgrami= degerlendirme= odev1=odev2= %100
+if  dersProgrami== %100
+  print("aşamayı geçtin. bitir ve devam et.") 
+başka: 
+  print("aşamayı tamamlamadınız.") 
+  
+if degerlendirme == %100
+  print(" aşamayı geçtin. bitir ve devam et.") 
+  
+
