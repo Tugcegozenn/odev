@@ -1,0 +1,65 @@
+class Login:
+    def __init__(self):
+        self.username = ''
+        self.password = ''
+        self.error_msg = ''
+        self.error_displayed = False
+
+    def set_username(self, username):
+        self.username = username
+
+    def set_password(self, password):
+        self.password = password
+
+    def submit(self):
+        if self.username == '' and self.password == '':
+            self.error_msg = 'Epic sadface: Username and password are required'
+        elif self.username == '':
+            self.error_msg = 'Epic sadface: Username is required'
+        elif self.password == '':
+            self.error_msg = 'Epic sadface: Password is required'
+        elif self.username == 'locked_out_user' and self.password == 'secret_sauce':
+            self.error_msg = 'Epic sadface: Sorry, this user has been locked out.'
+        else:
+            return True
+        return False
+
+    def display_error(self):
+        self.error_displayed = True
+        print(f"{self.error_msg} (X)")
+
+    def close_error(self):
+        self.error_displayed = False
+        self.error_msg = ''
+        print("Error message closed")
+
+
+# Test Cases
+login = Login()
+
+# Test Case 1: Kullanıcı adı ve şifre alanları boş geçildiğinde uyarı mesajı olarak "Epic sadface: Username is required" gösterilmelidir.
+login.set_username('')
+login.set_password('')
+if not login.submit():
+    login.display_error()
+
+# Test Case 2: Sadece şifre alanı boş geçildiğinde uyarı mesajı olarak "Epic sadface: Password is required" gösterilmelidir.
+login.set_username('testuser')
+login.set_password('')
+if not login.submit():
+    login.display_error()
+
+# Test Case 3: Kullanıcı adı "locked_out_user" şifre alanı "secret_sauce" gönderildiğinde "Epic sadface: Sorry, this user has been locked out." mesajı gösterilmelidir.
+login.set_username('locked_out_user')
+login.set_password('secret_sauce')
+if not login.submit():
+    login.display_error()
+
+# Test Case 4: Kullanıcı adı ve şifre alanları boş geçildiğinde bu iki inputun yanında da kırmızı "X" ikonu çıkmalıdır.
+login.set_username('')
+login.set_password('')
+if not login.submit():
+    login.display_error()
+
+    # Daha sonra aşağıda çıkan uyarı mesajının kapatma butonuna tıklandığında bu "X" ikonları kaybolmalıdır.
+    login.close_error()
